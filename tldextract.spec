@@ -4,7 +4,7 @@
 #
 Name     : tldextract
 Version  : 2.2.1
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/35/81/ec1f53b7113d3ea340019d184fa0be2cdf8b195cd66d9b96811af65500fd/tldextract-2.2.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/35/81/ec1f53b7113d3ea340019d184fa0be2cdf8b195cd66d9b96811af65500fd/tldextract-2.2.1.tar.gz
 Summary  : Accurately separate the TLD from the registered domain and subdomains of a URL, using the Public Suffix List. By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
@@ -16,10 +16,12 @@ Requires: tldextract-python = %{version}-%{release}
 Requires: tldextract-python3 = %{version}-%{release}
 Requires: idna
 Requires: requests
+Requires: requests-file
 Requires: setuptools
 BuildRequires : buildreq-distutils3
 BuildRequires : idna
 BuildRequires : requests
+BuildRequires : requests-file
 BuildRequires : setuptools
 
 %description
@@ -69,7 +71,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562795386
+export SOURCE_DATE_EPOCH=1571162286
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -85,7 +88,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/tldextract
-cp LICENSE %{buildroot}/usr/share/package-licenses/tldextract/LICENSE
+cp %{_builddir}/tldextract-2.2.1/LICENSE %{buildroot}/usr/share/package-licenses/tldextract/15bd9e849bdae6e6f7575095f96ea07fdcc8ca23
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -100,7 +103,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/tldextract/LICENSE
+/usr/share/package-licenses/tldextract/15bd9e849bdae6e6f7575095f96ea07fdcc8ca23
 
 %files python
 %defattr(-,root,root,-)
