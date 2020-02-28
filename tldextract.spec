@@ -4,7 +4,7 @@
 #
 Name     : tldextract
 Version  : 2.2.2
-Release  : 5
+Release  : 6
 URL      : https://files.pythonhosted.org/packages/cc/57/86c3c69d3df6b13c4ca1b41f4c57ec39051d002953b3960c276ce321837f/tldextract-2.2.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/cc/57/86c3c69d3df6b13c4ca1b41f4c57ec39051d002953b3960c276ce321837f/tldextract-2.2.2.tar.gz
 Summary  : Accurately separate the TLD from the registered domain and subdomains of a URL, using the Public Suffix List. By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
@@ -30,8 +30,31 @@ BuildRequires : tox
 BuildRequires : virtualenv
 
 %description
-# tldextract
-## Python Module [![PyPI version](https://badge.fury.io/py/tldextract.svg)](https://badge.fury.io/py/tldextract) [![Build Status](https://travis-ci.org/john-kurkowski/tldextract.svg?branch=master)](https://travis-ci.org/john-kurkowski/tldextract)
+`tldextract` accurately separates the gTLD or ccTLD (generic or country code
+top-level domain) from the registered domain and subdomains of a URL.
+
+    >>> import tldextract
+    >>> tldextract.extract('http://forums.news.cnn.com/')
+    ExtractResult(subdomain='forums.news', domain='cnn', suffix='com')
+    >>> tldextract.extract('http://forums.bbc.co.uk/') # United Kingdom
+    ExtractResult(subdomain='forums', domain='bbc', suffix='co.uk')
+    >>> tldextract.extract('http://www.worldbank.org.kg/') # Kyrgyzstan
+    ExtractResult(subdomain='www', domain='worldbank', suffix='org.kg')
+
+`ExtractResult` is a namedtuple, so it's simple to access the parts you want.
+
+    >>> ext = tldextract.extract('http://forums.bbc.co.uk')
+    >>> (ext.subdomain, ext.domain, ext.suffix)
+    ('forums', 'bbc', 'co.uk')
+    >>> # rejoin subdomain and domain
+    >>> '.'.join(ext[:2])
+    'forums.bbc'
+    >>> # a common alias
+    >>> ext.registered_domain
+    'bbc.co.uk'
+
+By default, this package supports the public ICANN TLDs and their exceptions.
+You can optionally support the Public Suffix List's private domains as well.
 
 %package bin
 Summary: bin components for the tldextract package.
@@ -63,6 +86,7 @@ python components for the tldextract package.
 Summary: python3 components for the tldextract package.
 Group: Default
 Requires: python3-core
+Provides: pypi(tldextract)
 
 %description python3
 python3 components for the tldextract package.
@@ -70,13 +94,14 @@ python3 components for the tldextract package.
 
 %prep
 %setup -q -n tldextract-2.2.2
+cd %{_builddir}/tldextract-2.2.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571241795
+export SOURCE_DATE_EPOCH=1582909683
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
