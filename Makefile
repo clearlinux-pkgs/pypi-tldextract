@@ -1,5 +1,5 @@
 PKG_NAME := tldextract
-URL = https://files.pythonhosted.org/packages/45/90/827138ee22b7635e8c71373530e5fabccd89ec636ba6ecedd442b3ecbf5a/tldextract-2.2.3.tar.gz
+URL = https://files.pythonhosted.org/packages/ef/c9/664bbac3f41af3621f324d75844c12b331c1079d9458cf0ecfd54866c704/tldextract-3.0.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
