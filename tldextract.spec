@@ -4,7 +4,7 @@
 #
 Name     : tldextract
 Version  : 3.1.0
-Release  : 17
+Release  : 18
 URL      : https://files.pythonhosted.org/packages/42/9c/0340ebfabfbbb3a2868eaa1039479688ca52e1d7f433df4fae638941377f/tldextract-3.1.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/42/9c/0340ebfabfbbb3a2868eaa1039479688ca52e1d7f433df4fae638941377f/tldextract-3.1.0.tar.gz
 Summary  : Accurately separate the TLD from the registered domain and subdomains of a URL, using the Public Suffix List. By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
