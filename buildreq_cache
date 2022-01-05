@@ -1,0 +1,5 @@
+3.1.2
+pypi(filelock)
+pypi(idna)
+pypi(requests)
+pypi(requests_file)

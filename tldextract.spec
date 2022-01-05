@@ -4,7 +4,7 @@
 #
 Name     : tldextract
 Version  : 3.1.2
-Release  : 27
+Release  : 28
 URL      : https://files.pythonhosted.org/packages/6c/aa/ddf3d8f064887d5b4ae2c0ba7c688baa6cb48717db001abd340b72350069/tldextract-3.1.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/6c/aa/ddf3d8f064887d5b4ae2c0ba7c688baa6cb48717db001abd340b72350069/tldextract-3.1.2.tar.gz
 Summary  : Accurately separate the TLD from the registered domain and subdomains of a URL, using the Public Suffix List. By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
@@ -14,21 +14,19 @@ Requires: tldextract-bin = %{version}-%{release}
 Requires: tldextract-license = %{version}-%{release}
 Requires: tldextract-python = %{version}-%{release}
 Requires: tldextract-python3 = %{version}-%{release}
-Requires: filelock
-Requires: idna
-Requires: requests
 Requires: requests-file
 BuildRequires : buildreq-distutils3
-BuildRequires : filelock
-BuildRequires : idna
-BuildRequires : pluggy
-BuildRequires : py-python
-BuildRequires : pytest
-BuildRequires : requests
+BuildRequires : pypi(filelock)
+BuildRequires : pypi(idna)
+BuildRequires : pypi(pluggy)
+BuildRequires : pypi(py)
+BuildRequires : pypi(pytest)
+BuildRequires : pypi(requests)
+BuildRequires : pypi(requests_file)
+BuildRequires : pypi(setuptools_scm)
+BuildRequires : pypi(tox)
+BuildRequires : pypi(virtualenv)
 BuildRequires : requests-file
-BuildRequires : setuptools_scm
-BuildRequires : tox
-BuildRequires : virtualenv
 
 %description
 top-level domain) from the registered domain and subdomains of a URL.
@@ -84,7 +82,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630518131
+export SOURCE_DATE_EPOCH=1641423346
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
