@@ -4,7 +4,7 @@
 #
 Name     : pypi-tldextract
 Version  : 3.1.2
-Release  : 29
+Release  : 30
 URL      : https://files.pythonhosted.org/packages/6c/aa/ddf3d8f064887d5b4ae2c0ba7c688baa6cb48717db001abd340b72350069/tldextract-3.1.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/6c/aa/ddf3d8f064887d5b4ae2c0ba7c688baa6cb48717db001abd340b72350069/tldextract-3.1.2.tar.gz
 Summary  : Accurately separate the TLD from the registered domain and subdomains of a URL, using the Public Suffix List. By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
@@ -14,7 +14,7 @@ Requires: pypi-tldextract-bin = %{version}-%{release}
 Requires: pypi-tldextract-license = %{version}-%{release}
 Requires: pypi-tldextract-python = %{version}-%{release}
 Requires: pypi-tldextract-python3 = %{version}-%{release}
-Requires: requests-file
+Requires: pypi(requests_file)
 BuildRequires : buildreq-distutils3
 BuildRequires : pypi(filelock)
 BuildRequires : pypi(idna)
@@ -81,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641597242
+export SOURCE_DATE_EPOCH=1641843482
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
