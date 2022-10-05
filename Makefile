@@ -1,5 +1,5 @@
 PKG_NAME := pypi-tldextract
-URL = https://files.pythonhosted.org/packages/80/d8/75264c54cfa1371d2a42fb613c24d71628c411764ab0d5046b54ca18a5b2/tldextract-3.3.1.tar.gz
+URL = https://files.pythonhosted.org/packages/9f/67/9442fd49ac0d234933c9c90cb2e2f072d9df021577547c09456dd4484ed4/tldextract-3.4.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
