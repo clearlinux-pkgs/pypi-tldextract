@@ -4,7 +4,7 @@
 #
 Name     : pypi-tldextract
 Version  : 3.4.0
-Release  : 42
+Release  : 43
 URL      : https://files.pythonhosted.org/packages/9f/67/9442fd49ac0d234933c9c90cb2e2f072d9df021577547c09456dd4484ed4/tldextract-3.4.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/9f/67/9442fd49ac0d234933c9c90cb2e2f072d9df021577547c09456dd4484ed4/tldextract-3.4.0.tar.gz
 Summary  : Accurately separates a URL's subdomain, domain, and public suffix, using the Public Suffix List (PSL). By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
