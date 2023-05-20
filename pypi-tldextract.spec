@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-tldextract
-Version  : 3.4.1
-Release  : 44
-URL      : https://files.pythonhosted.org/packages/56/5a/be9ad223cd080960dd991a18e3e9e019348bbb03669634edac0e397b5f25/tldextract-3.4.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/56/5a/be9ad223cd080960dd991a18e3e9e019348bbb03669634edac0e397b5f25/tldextract-3.4.1.tar.gz
+Version  : 3.4.4
+Release  : 45
+URL      : https://files.pythonhosted.org/packages/80/90/d294a3f69b4143cf56c326064086236bc8157c389497893d940968e6cda2/tldextract-3.4.4.tar.gz
+Source0  : https://files.pythonhosted.org/packages/80/90/d294a3f69b4143cf56c326064086236bc8157c389497893d940968e6cda2/tldextract-3.4.4.tar.gz
 Summary  : Accurately separates a URL's subdomain, domain, and public suffix, using the Public Suffix List (PSL). By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -17,11 +17,7 @@ Requires: pypi-tldextract-python = %{version}-%{release}
 Requires: pypi-tldextract-python3 = %{version}-%{release}
 Requires: pypi(requests_file)
 BuildRequires : buildreq-distutils3
-BuildRequires : pypi(filelock)
-BuildRequires : pypi(idna)
 BuildRequires : pypi(py)
-BuildRequires : pypi(requests)
-BuildRequires : pypi(requests_file)
 BuildRequires : pypi(setuptools_scm)
 BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
@@ -75,10 +71,10 @@ python3 components for the pypi-tldextract package.
 
 
 %prep
-%setup -q -n tldextract-3.4.1
-cd %{_builddir}/tldextract-3.4.1
+%setup -q -n tldextract-3.4.4
+cd %{_builddir}/tldextract-3.4.4
 pushd ..
-cp -a tldextract-3.4.1 buildavx2
+cp -a tldextract-3.4.4 buildavx2
 popd
 
 %build
@@ -86,15 +82,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682608336
+export SOURCE_DATE_EPOCH=1684612253
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
