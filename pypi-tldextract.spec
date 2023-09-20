@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-tldextract
-Version  : 3.5.0
-Release  : 46
-URL      : https://files.pythonhosted.org/packages/50/c6/3a555f4a1b22c66c70b0450353a0cab91c3946b8a0a732d8b72e60047103/tldextract-3.5.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/50/c6/3a555f4a1b22c66c70b0450353a0cab91c3946b8a0a732d8b72e60047103/tldextract-3.5.0.tar.gz
+Version  : 3.6.0
+Release  : 47
+URL      : https://files.pythonhosted.org/packages/ba/7a/dc3ffc0e333d33e8ccb63a14adc40180c29d89490a25ebe9f9ef01605c51/tldextract-3.6.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/ba/7a/dc3ffc0e333d33e8ccb63a14adc40180c29d89490a25ebe9f9ef01605c51/tldextract-3.6.0.tar.gz
 Summary  : Accurately separates a URL's subdomain, domain, and public suffix, using the Public Suffix List (PSL). By default, this includes the public ICANN TLDs and their exceptions. You can optionally support the Public Suffix List's private domains as well.
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -72,10 +72,10 @@ python3 components for the pypi-tldextract package.
 
 
 %prep
-%setup -q -n tldextract-3.5.0
-cd %{_builddir}/tldextract-3.5.0
+%setup -q -n tldextract-3.6.0
+cd %{_builddir}/tldextract-3.6.0
 pushd ..
-cp -a tldextract-3.5.0 buildavx2
+cp -a tldextract-3.6.0 buildavx2
 popd
 
 %build
@@ -83,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1694101603
+export SOURCE_DATE_EPOCH=1695171886
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
